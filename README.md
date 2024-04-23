@@ -31,7 +31,7 @@ Car_Price_PredictorML_Ai-Django/
 │   └── templates/
 │       └── views/
 │           ├── index.html
-│           └── prediction.html
+│           └── predict.html
 │
 └── model/
     ├── Cleaned_Car_data.csv
@@ -72,7 +72,7 @@ This directory is the Django app directory where the main functionality of the p
 - **templates/**: Directory for HTML templates.
   - **views/**: Templates specific to the main app.
     - **index.html**: Homepage template.
-    - **prediction.html**: Template for displaying price predictions.
+    - **predict.html**: Template for displaying price predictions.
 
 ### model/
 This directory contains the machine learning model and data files.
