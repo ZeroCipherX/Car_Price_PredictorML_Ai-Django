@@ -35,8 +35,7 @@ Car_Price_PredictorML_Ai-Django/
 │
 └── model/
     ├── Cleaned_Car_data.csv
-    ├── LinearRegressionModel.pkl
-    └── joblib.ipynb
+   
 ```
 ---
 
