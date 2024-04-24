@@ -1,0 +1,134 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Sale Price Detector</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    <style>
+        body.home-page {
+            background-image: url('{% static 'images/image.jpg' %}');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Prevents scrolling */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1em; /* Add padding to header */
+            position: fixed; /* Fix header position */
+            top: 0; /* Position header at the top */
+            left: 0; /* Align header to the left */
+            width: 100%; /* Ensure header spans the full width */
+            z-index: 1000; /* Ensure header is above other content */
+            background-color: rgba(0, 0, 0, 0.8); /* Black transparent background */
+            color: white; /* Text color */
+        }
+
+        .logo {
+            margin-left: 1em; /* Adjust as needed */
+        }
+
+        .button-container {
+            display: flex;
+            align-items: center; /* Align buttons vertically */
+        }
+
+        nav a,
+        nav button,
+        .green-button,
+        nav input[type="submit"] {
+            text-decoration: none;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            background-color: #4CAF50;
+            border: none;
+            padding: 0.6em 2em; /* Adjust padding as needed */
+            cursor: pointer;
+            min-width: 120px; /* Set a minimum width */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box; /* Ensure padding doesn't affect dimensions */
+            margin-right: 10px; /* Add margin between buttons */
+        }
+        
+        /* Ensure the last button doesn't have margin-right */
+        nav a:last-child,
+        nav button:last-child,
+        .green-button:last-child,
+        nav input[type="submit"]:last-child {
+            margin-right: 0;
+        }
+        
+        /* Adjust the padding for the "Start" button */
+        nav input[type="submit"] {
+            padding: 0.87em 1.5em; /* Adjust padding to match other buttons */
+        }
+        
+
+        
+
+        .content {
+            margin-top: 80px; /* Ensure content starts below the fixed header */
+            padding-bottom: 50px; /* Add padding to accommodate the footer */
+        }
+
+       
+    </style>
+</head>
+<body class="home-page"> 
+    
+    <canvas id="smokeCanvas"></canvas>
+    <div id="clock" class="digital-clock"></div>
+
+    <!-- Header Section -->
+    <header>
+        <h1 class="logo">Car Sale Price Detector</h1>
+        <nav class="button-container">
+            <a href="#" class="green-button" onclick="showHomePage()">Home</a>
+            <a href="#" class="green-button" onclick="showAboutSection()">About Us</a>
+            <form action="predict">
+                <input type="submit" value="START" class="green-button">
+            </form>
+        </nav>
+    </header>
+
+    <!-- Content Section -->
+    <div class="content">
+        <!-- Centered h2 -->
+        <div class="centered-text">
+            <video src="{% static 'video/particles.mp4' %}" muted="" autoplay=""></video>
+            <h2><span>C</span>ar Pr<span>ice</span> WebApp</h2>
+            <div class="black-bar"></div>
+        </div>
+
+        <!-- Popup Section - Removed the form for adding car info -->
+
+        <!-- About Us Section -->
+        <div class="about-section" id="aboutSection" style="display:none;">
+            <img src="{% static 'images/image2.jpeg' %}" alt="Car Image">
+            <div class="about-text">
+                <p>Welcome to our Car Price Estimation Web App! Easily determine your used car's fair value with our user-friendly platform. We use advanced technology to analyze prices, details, and integrate marketplace data, ensuring a quick, accurate estimate. Sell with confidence in today's competitive market – it's that simple!</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Car Sale Price Detector. All rights reserved.</p>
+    </footer>
+
+    <script src="{% static 'js/script.js' %}" defer></script>
+    <script src="{% static 'js/smokeEffect.js' %}"></script>
+    <script src="{% static 'js/clocks.js' %}"></script>
+    
+</body>
+</html>

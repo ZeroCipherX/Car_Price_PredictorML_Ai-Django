@@ -1,0 +1,143 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Predict</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        body {
+            background-image: url("{% static 'images/image2.jpeg' %}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Prevent scrolling */
+            display: flex;
+            justify-content: center;
+            align-items: center; /* Center content vertically and horizontally */
+            min-height: 100vh; /* Ensure the body covers the entire viewport height */
+            background-color: transparent; /* Remove semi-transparent white background */
+        }
+
+        .main {
+            width: 700px;
+            height: 500px; /* Maintain height */
+            border-radius: 5%;
+            padding: 20px; /* Consistent padding */
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white background */
+            overflow-y: auto; /* Enable vertical scrolling */
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .col-sm-4 {
+            flex: 0 0 calc(33.3333% - 10px);
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold; /* Make text bold */
+        }
+
+        input[type=text] {
+            width: calc(100% - 12px); /* Adjusted width */
+            padding: 10px;  /* Adjusted padding */
+            margin-top: 5px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px; /* Adjusted font size */
+            background-color: rgba(255, 192, 203, 0.5); /* Pinkish transparent background */
+        }
+
+        input[type=submit] {
+            background-color: #007bff; /* Blue color */
+            color: white;
+            cursor: pointer;
+            padding: 14px 32px; /* Adjusted padding */
+            border: none;
+            border-radius: 4px;
+            font-size: 18px; /* Maintained font size */
+            transition: background-color 0.3s ease; /* Smooth transition */
+        }
+
+        input[type=submit]:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+        #transmission {
+            width: calc(110% - 1px); /* Adjusted width */
+        }
+        /* Additional styles for predicted price */
+        .predicted-price {
+            color: red; /* Red color */
+            font-family: Arial, sans-serif; /* Font family */
+            font-size: 24px; /* Font size */
+            font-weight: bold; /* Bold font */
+            margin-top: 20px; /* Adjusted margin */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1>Please Enter the following values:</h1>
+        <form action="result">
+            <div class="row">
+                <div class="col-sm-4">
+                    <label for="make">Make of the Car</label>
+                    <input type="text" id="make" name="make" placeholder="e.g., Suzuki">
+                </div>
+                <div class="col-sm-4">
+                    <label for="model">Model of the Car</label>
+                    <input type="text" id="model" name="model" placeholder="e.g., Alto">
+                </div>
+                <div class="col-sm-4">
+                    <label for="make_year">Make Year</label>
+                    <input type="text" id="make_year" name="make_year" placeholder="e.g., 2017">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label for="cc">CC</label>
+                    <input type="text" id="cc" name="cc" placeholder="e.g., 660">
+                </div>
+                <div class="col-sm-4">
+                    <label for="assembly">Assembly</label>
+                    <input type="text" id="assembly" name="assembly" placeholder="e.g., Local or Imported">
+                </div>
+                <div class="col-sm-4">
+                    <label for="mileage">Mileage</label>
+                    <input type="text" id="mileage" name="mileage" placeholder="e.g., 50000">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label for="registered_city">Registered City</label>
+                    <input type="text" id="registered_city" name="registered_city" placeholder="e.g., Karachi">
+                </div>
+                <div class="col-sm-4">
+                    <label for="transmission">Transmission</label>
+                    <input type="text" id="transmission" name="transmission" placeholder="e.g., Automatic or Manual">
+                </div>
+            </div>
+            <div class="row">
+                <input type="submit" value="PREDICT">
+            </div>
+        </form>
+        <div class="row">
+            <h3 class="predicted-price">{{ result2 }}</h3> 
+        </div>
+    </div>
+</body>
+</html>
