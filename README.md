@@ -1,3 +1,5 @@
+https://github.com/Abdul-Saqib/Car_Price_PredictorML_Ai-Django/assets/127623510/b686e32d-3439-48fe-9ef8-bcde84970b87
+
 # Car_Price_PredictorML_Ai-Django
 Car Price Predictor: A Django web app utilizing AI linear regression to estimate the selling price of used cars based on key features.
 ```
