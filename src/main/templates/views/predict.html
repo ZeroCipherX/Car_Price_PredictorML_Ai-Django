@@ -86,58 +86,151 @@
             font-weight: bold; /* Bold font */
             margin-top: 20px; /* Adjusted margin */
         }
+           button.goBackButton {
+            background-color: #007bff; /* Blue color */
+            color: white;
+            cursor: pointer;
+            padding: 14px 32px; /* Adjusted padding */
+            border: none;
+            border-radius: 4px;
+            font-size: 18px; /* Maintained font size */
+            transition: background-color 0.3s ease; /* Smooth transition */
+        }
 
+        button.goBackButton:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+        select {
+            width: 100%; /* Make it wider */
+            padding: 8px; /* Add padding for better appearance */
+            border: 1px solid #ccc; /* Add border */
+            border-radius: 5px; /* Add border radius */
+            background-color: rgba(255, 192, 203, 0.5); /* Pinkish transparent color */
+            color: #555; /* Text color */
+            font-size: 16px; /* Font size */
+        }
+    
+        /* Change color when selected */
+        select:focus {
+            outline: none; /* Remove outline */
+            background-color: #fff; /* White background when selected */
+        }
     </style>
 </head>
 <body>
     <div class="main">
         <h1>Please Enter the following values:</h1>
-        <form action="result">
+        <form action="result" id="predictForm" method="get">
             <div class="row">
                 <div class="col-sm-4">
                     <label for="make">Make of the Car</label>
-                    <input type="text" id="make" name="make" placeholder="e.g., Suzuki">
+                    <select id="make" name="make">
+                        <option value="">Select</option> <!-- Added "Select" option -->
+                        {% for make in make_choices %}
+                        <option value="{{ make }}">{{ make }}</option>
+                        {% endfor %}
+                    </select>
                 </div>
                 <div class="col-sm-4">
                     <label for="model">Model of the Car</label>
-                    <input type="text" id="model" name="model" placeholder="e.g., Alto">
+                    <select id="model" name="model">
+                        <option value="">Select</option> <!-- Added "Select" option -->
+                        {% for model in model_choices %}
+                        <option value="{{ model }}">{{ model }}</option>
+                        {% endfor %}
+                    </select>
                 </div>
                 <div class="col-sm-4">
                     <label for="make_year">Make Year</label>
-                    <input type="text" id="make_year" name="make_year" placeholder="e.g., 2017">
+                    <select id="make_year" name="make_year">
+                        <option value="">Select</option> <!-- Added "Select" option -->
+                        {% for year in make_year_choices %}
+                        <option value="{{ year }}">{{ year }}</option>
+                        {% endfor %}
+                    </select>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-4">
                     <label for="cc">CC</label>
-                    <input type="text" id="cc" name="cc" placeholder="e.g., 660">
+                    <select id="cc" name="cc">
+                        <option value="">Select</option> <!-- Added "Select" option -->
+                        {% for cc in cc_choices %}
+                        <option value="{{ cc }}">{{ cc }}</option>
+                        {% endfor %}
+                    </select>
                 </div>
                 <div class="col-sm-4">
                     <label for="assembly">Assembly</label>
-                    <input type="text" id="assembly" name="assembly" placeholder="e.g., Local or Imported">
+                    <select id="assembly" name="assembly">
+                        <option value="">Select</option> <!-- Added "Select" option -->
+                        {% for assembly in assembly_choices %}
+                        <option value="{{ assembly }}">{{ assembly }}</option>
+                        {% endfor %}
+                    </select>
                 </div>
                 <div class="col-sm-4">
                     <label for="mileage">Mileage</label>
-                    <input type="text" id="mileage" name="mileage" placeholder="e.g., 50000">
+                    <select id="mileage" name="mileage">
+                        <option value="">Select</option> <!-- Added "Select" option -->
+                        {% for mileage in mileage_choices %}
+                        <option value="{{ mileage }}">{{ mileage }}</option>
+                        {% endfor %}
+                    </select>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-4">
                     <label for="registered_city">Registered City</label>
-                    <input type="text" id="registered_city" name="registered_city" placeholder="e.g., Karachi">
+                    <select id="registered_city" name="registered_city">
+                        <option value="">Select</option> <!-- Added "Select" option -->
+                        {% for city in registered_city_choices %}
+                        <option value="{{ city }}">{{ city }}</option>
+                        {% endfor %}
+                    </select>
                 </div>
                 <div class="col-sm-4">
                     <label for="transmission">Transmission</label>
-                    <input type="text" id="transmission" name="transmission" placeholder="e.g., Automatic or Manual">
+                    <select id="transmission" name="transmission">
+                        <option value="">Select</option> <!-- Added "Select" option -->
+                        {% for transmission in transmission_choices %}
+                        <option value="{{ transmission }}">{{ transmission }}</option>
+                        {% endfor %}
+                    </select>
                 </div>
             </div>
             <div class="row">
                 <input type="submit" value="PREDICT">
             </div>
         </form>
+        
         <div class="row">
             <h3 class="predicted-price">{{ result2 }}</h3> 
         </div>
-    </div>
+   <!-- Back button -->
+   <div class="row">
+    <!-- Apply the style to the button -->
+    <button class="goBackButton" onclick="goBack()">Tap 1->Predict Twice->Home</button>
+    <!-- Add the reset button -->
+    <button class="goBackButton" onclick="resetForm()" type="button">Reset Form</button>
+</div>
+</div>
+
+<script>
+function goBack() {
+    window.history.back();
+}
+
+function resetForm() {
+    var form = document.getElementById("predictForm");
+    if (form) {
+        form.reset();
+    }
+}
+</script>
+        
+    
+    
 </body>
 </html>
+
